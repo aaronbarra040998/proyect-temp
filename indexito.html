@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navbar Tres</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Nunito', sans-serif;
+            font-size: 20px;
+        }
+
+        body {
+            background: linear-gradient(to right, #2b70e4 70%, #ffd034 70%);
+            overflow-x: hidden;
+        }
+
+        .header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            height: 85px;
+            padding: 0 9px 0 11%;
+        }
+
+        .header .icono-menu {
+            cursor: pointer;
+            order: 3;
+            margin-left: auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .header .icono-menu img {
+            height: 40px;
+            width: auto;
+            transition: all 0.3s;
+            vertical-align: top;
+            cursor: pointer;
+        }
+
+        .header .icono-menu img:hover {
+            transform: scale(1.2);
+        }
+
+        .header nav {
+            order: 1;
+        }
+
+        .header .nav-links {
+            list-style: none;
+        }
+
+        .header .nav-links li {
+            display: inline-block;
+            padding: 0 20px;
+        }
+
+        .header .nav-links li:nth-child(1) {
+            padding: 0 20px 0 0;
+        }
+
+        .header .nav-links li:hover {
+            transform: scale(1.1);
+        }
+
+        .header .nav-links a {
+            font-size: 700;
+            color: #eceff1;
+            text-decoration: none;
+        }
+
+        .header .nav-links li a:hover {
+            color: #ffbc0e;
+        }
+
+        .btn {
+            order: 2;
+            padding-left: 16%;
+        }
+
+        .btn button {
+            margin-top: 9%;
+            margin-left: 20px;
+            font-weight: 700;
+            color: #1b3039;
+            padding: 9px 25px;
+            background: #eceff1;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease 0s;
+        }
+
+        .btn button:hover {
+            background-color: #000000;
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        .header .search-bar {
+            order: 2;
+            position: relative;
+            display: inline-block;
+            margin-left: 20px;
+            padding-left: 48%;
+        }
+
+        .header .search-bar input[type="text"] {
+            background-color: #2b70e4;
+            color: #eceff1;
+            padding: 5px;
+            border-radius: 25px;
+            border: none;
+            font-size: 16px;
+            height: 47px;
+            width: 90%;
+        }
+
+        .search-bar i {
+            position: absolute;
+            padding-right: 3%;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            color: rgb(0, 0, 0); /* Color del icono */
+        }
+
+        .search-bar i.hidden {
+            display: none;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .autos {
+            padding-top: 10%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 400px;
+            flex: 1;
+        }
+
+        .logi {
+            color: #ffffff;
+            padding-top: 7%;
+            padding-right: 5%;
+            display: block;
+            margin-left: auto;
+            text-align: right; /* Alineación del texto dentro del div */
+            max-width: 50%; /* Limitar el ancho máximo para evitar que se extienda demasiado */
+
+            /* Estilos personalizados para el div "logi" */
+
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .logi h2 {
+            font-size: 24px;
+            font-weight: bold;
+ /* Cambiar el color del texto del título */
+            margin-bottom: 20px; /* Añadir margen inferior al título */
+        }
+
+        .logi input[type="text"],
+        .logi input[type="password"] {
+            padding: 5px;
+            margin-top: 10px;
+            width: 100%;
+            border: 1px solid #ccc; /* Añadir borde a los campos de texto */
+            border-radius: 25px; /* Añadir bordes redondeados a los campos de texto */
+        }
+
+        .logi label {
+ /* Cambiar el color del texto de las etiquetas */
+            font-weight: bold; /* Añadir negrita al texto de las etiquetas */
+            margin-top: 10px; /* Añadir margen superior a las etiquetas */
+            display: block; /* Mostrar las etiquetas en una línea separada */
+        }
+
+        .logi input[type="checkbox"] {
+            margin-top: 10px;
+        }
+
+        .logi button {
+            margin-top: 20px;
+            font-weight: 700;
+            color: #000000;
+            padding: 9px 65px;
+            background: #ffffff; /* Cambiar el color de fondo del botón */
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease 0s;
+        }
+
+        .logi button:hover {
+            color: #ffffff;
+            background-color: #000000;
+            transform: scale(1.1);
+        }
+
+        span.start {
+            color: #ffffff;
+            font-size: 45.6px;
+            font-weight: bold;
+            font-family: 'Archivo Black', sans-serif;
+        }
+
+        span.mid {
+            color: #ffffff;
+            font-size: 26.6px;
+            font-weight: bold;
+            padding-left: 14.5%;
+            font-family: 'Archivo Black', sans-serif;
+        }
+
+        span.end {
+            font-size: 85px;
+            font-weight: bold;
+            font-family: 'Archivo Black', sans-serif;
+        }
+
+        /* Estilos para el contenedor del menú */
+        .cont-menu {
+            background-color: #2b70e4;
+            box-shadow: 2px 0px 5px 2px rgb(66, 66, 66);
+            width: 400px;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            right: 0;
+            transition: all 0.5s ease;
+        }
+
+        .cont-menu ul {
+            padding: 100px 0 20px 0;
+            list-style: none;
+        }
+
+        .cont-menu ul li {
+            color: white;
+            display: block;
+            font-size: 25px;
+            text-decoration: none;
+            padding: 10px 50px;
+            cursor: pointer;
+        }
+
+        .cont-menu ul li:hover {
+            background-color: rgb(228, 228, 228);
+            color: rgb(42, 42, 42);
+        }
+
+        /* Estilos para el JavaScript */
+        .active {
+            transform: translateX(600px);
+        }
+
+        .opacity {
+            background-color: rgba(0, 0, 0, 0.5);
+            transition: all 0.5s ease;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="search-bar">
+            <input type="text" placeholder="">
+            <i id="search-icon" class="fas fa-search"></i>
+        </div>
+        <div class="icono-menu">
+            <img src="/img/open-menu.png" id="icono-menu" alt="Logo de la marca">
+        </div>
+        <div class="cont-menu active" id="menu">
+            <ul>
+                <li> Login</li>
+                <li> Support</li>
+                <li> Contact Us</li>
+            </ul>
+        </div>
+        <nav>
+            <ul class="nav-links">
+              <button id="icono-menu" class="btn-icon">
+                <img src="/img/back2.png" alt="Logo de la marca">
+              </button>
+            </ul>
+          </nav>
+    </header>
+    <div class="container">
+        <div class="autos">
+            <img src="/img/auto2.png" alt="autoport">
+        </div>
+        <div class="logi">
+            <h2>Bienvenido otra vez</h2>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <input type="checkbox" id="remember" name="remember">
+            <label for="remember">Recordar contraseña</label>
+            <button>Login</button>
+        </div>
+    </div>
+    <script>
+        const searchBar = document.querySelector('.search-bar input');
+        const searchIcon = document.getElementById('search-icon');
+
+        searchBar.addEventListener('input', function () {
+            if (searchBar.value === '') {
+                searchIcon.style.display = 'block';
+            } else {
+                searchIcon.style.display = 'none';
+            }
+        });
+
+        const iconoMenu = document.querySelector('#icono-menu');
+        const menu = document.querySelector('#menu');
+
+        iconoMenu.addEventListener('click', (e) => {
+            // Alternamos estilos para el menú body
+            menu.classList.toggle('active');
+            document.body.classList.toggle('opacity');
+
+            // Alternamos su atributo 'src' para que el icono de menú cambie
+            const rutaActual = e.target.getAttribute('src');
+
+            if (rutaActual == '/img/open-menu.png') {
+                e.target.setAttribute('src', '/img/open-menu2.png');
+            } else {
+                e.target.setAttribute('src', '/img/open-menu.png');
+            }
+        });
+    </script>
+</body>
+
+</html>
